@@ -3,32 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO -->
     <meta name="description" content="Земельный консалтинг B2B: снижение кадастровой стоимости, защита от изъятия, смена ВРИ. Бондаренко Антон Андреевич.">
     <meta name="keywords" content="земельный юрист, консалтинг, снижение кадастровой стоимости, ВРИ, ПЗЗ, разрешение на строительство, Волгоград">
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bondarenko-land.ru/">
     <meta property="og:title" content="Бондаренко А.А. | Земельный консалтинг B2B">
     <meta property="og:description" content="Превращаем административные барьеры в активы. Комплексное сопровождение девелоперов и собственников недвижимости.">
     <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Land+Law+Consulting">
 
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 
     <title>Бондаренко Антон Андреевич | Земельный консалтинг</title>
     
-    <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -38,28 +32,26 @@
                         display: ['"Space Grotesk"', 'sans-serif'],
                     },
                     colors: {
-                        page: '#131316',      // Черный графит
-                        card: '#1C1C1F',      // Темно-серый графит
-                        accent: '#FF7A00',    // Оранжевый
+                        page: '#131316',
+                        card: '#1C1C1F',
+                        accent: '#FF7A00',
                         accentHover: '#FF9533',
                         danger: '#FF453A',
                         success: '#22C55E',
-                        body: '#A1A1AA',      // Серый текст
+                        body: '#A1A1AA',
                     },
                     animation: {
-                        'float': 'float 10s ease-in-out infinite',
-                        'float-delayed': 'float 12s ease-in-out infinite 2s',
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'marquee': 'marquee 40s linear infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
-                            '50%': { transform: 'translateY(-20px) scale(1.05)' },
-                        },
                         marquee: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(255, 122, 0, 0.2)' },
+                            '50%': { boxShadow: '0 0 50px rgba(255, 122, 0, 0.6)' },
                         }
                     }
                 }
@@ -70,28 +62,40 @@
     <style>
         body { background-color: #131316; color: #fff; overflow-x: hidden; }
 
-        /* Градиентные границы карточек */
+        /* --- СОЛНЦЕ --- */
+        #sun-orb {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 160, 50, 0.6) 0%, rgba(255, 122, 0, 0) 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0; 
+            opacity: 0.9;
+            transition: top 0.1s linear, left 0.1s linear, transform 0.1s linear, background 0.5s ease;
+            top: 10%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen; 
+        }
+
+        /* --- КАРТОЧКИ --- */
         .gradient-card {
             position: relative;
             background: #1C1C1F;
             border-radius: 32px;
             background-clip: padding-box, border-box;
             background-origin: padding-box, border-box;
-            background-image: 
-                linear-gradient(#1C1C1F, #1C1C1F), 
-                linear-gradient(180deg, rgba(255, 122, 0, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+            background-image: linear-gradient(#1C1C1F, #1C1C1F), linear-gradient(180deg, rgba(255, 122, 0, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
             border: 1px solid transparent;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 0 0 rgba(255, 122, 0, 0);
         }
         .gradient-card:hover {
             transform: translateY(-4px);
-            background-image: 
-                linear-gradient(#232326, #232326), 
-                linear-gradient(180deg, rgba(255, 122, 0, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+            background-image: linear-gradient(#232326, #232326), linear-gradient(180deg, rgba(255, 122, 0, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 30px rgba(255, 122, 0, 0.15);
         }
-        /* Шум на карточках */
         .gradient-card::before {
             content: ""; position: absolute; inset: 0; border-radius: 32px;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
@@ -99,7 +103,51 @@
         }
         .gradient-card > * { position: relative; z-index: 2; }
 
-        /* Матовое стекло */
+        /* Прозрачные карточки для эффекта "Сквозь тучи" */
+        .glass-card {
+            position: relative;
+            background: rgba(28, 28, 31, 0.3); /* Более прозрачный фон */
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            z-index: 10;
+        }
+        .glass-card:hover {
+            background: rgba(28, 28, 31, 0.5);
+            border-color: rgba(255, 122, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Прозрачная карточка с градиентной рамкой (MATTE GLASS) */
+        .glass-gradient-card {
+            position: relative;
+            border-radius: 32px;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            background-image: 
+                linear-gradient(rgba(28, 28, 31, 0.7), rgba(28, 28, 31, 0.7)), 
+                linear-gradient(180deg, rgba(255, 122, 0, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid transparent;
+            backdrop-filter: blur(40px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+        .glass-gradient-card:hover {
+            transform: translateY(-4px);
+            background-image: 
+                linear-gradient(rgba(28, 28, 31, 0.85), rgba(28, 28, 31, 0.85)), 
+                linear-gradient(180deg, rgba(255, 122, 0, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 30px rgba(255, 122, 0, 0.15);
+        }
+        .glass-gradient-card::before {
+            content: ""; position: absolute; inset: 0; border-radius: 32px;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.4; pointer-events: none; mix-blend-mode: overlay; z-index: 1;
+        }
+        .glass-gradient-card > * { position: relative; z-index: 2; }
+
+
         .glass {
             background: rgba(19, 19, 22, 0.65);
             backdrop-filter: blur(40px) saturate(160%);
@@ -108,15 +156,7 @@
             box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 20px 40px -10px rgba(0,0,0,0.5);
         }
 
-        /* Северное сияние */
-        .aurora-blob { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; }
-        .aurora-1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,122,0,0.6) 0%, rgba(255,122,0,0) 70%); top: -15%; left: -10%; opacity: 0.4; animation: float 15s ease-in-out infinite; }
-        .aurora-2 { width: 900px; height: 900px; background: radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(124, 58, 237, 0) 70%); bottom: -20%; right: -20%; opacity: 0.3; animation: float-delayed 18s ease-in-out infinite; }
-        .aurora-3 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%); top: 30%; left: 40%; opacity: 0.2; animation: pulse-slow 10s ease-in-out infinite; }
-
-        /* Глобальный шум */
-        .global-noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.05; }
-        
+        .global-noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.05; }
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
         
@@ -131,20 +171,16 @@
 <body class="antialiased selection:bg-[#FF7A00] selection:text-black relative">
 
     <div class="global-noise"></div>
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="aurora-blob aurora-1"></div>
-        <div class="aurora-blob aurora-2"></div>
-        <div class="aurora-blob aurora-3"></div>
-    </div>
+    
+    <!-- СОЛНЦЕ -->
+    <div id="sun-orb"></div>
 
     <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-4">
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-4 transition-all duration-300">
         <div class="max-w-[1240px] mx-auto glass rounded-full px-6 py-3 flex justify-between items-center relative z-50">
             <div class="flex items-center gap-4 z-50">
-                <!-- Логотип Левый -->
-                <img src="logo.png" alt="Логотип" class="h-10 w-auto object-contain hidden md:block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <img src="logo.jpg" alt="Логотип" class="h-10 w-auto object-contain hidden md:block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-10 h-10 bg-white/5 rounded-full items-center justify-center text-accent border border-white/5"><i data-lucide="scale" class="w-5 h-5"></i></div>
-
                 <div class="flex flex-col leading-none">
                     <span class="font-display font-bold text-lg md:text-xl text-white tracking-tight">Бондаренко Антон Андреевич</span>
                     <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-accent font-medium mt-0.5">Земельный консалтинг B2B</span>
@@ -153,18 +189,10 @@
             
             <div class="hidden md:flex items-center gap-6">
                 <span class="text-xs text-gray-400 uppercase tracking-widest border border-white/10 px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-sm">Земля • Стройка • Выкуп</span>
-                <a href="tel:+79950291170" class="font-display font-bold text-white hover:text-accent transition-colors">
-                    +7 995 029 11 70
-                </a>
+                <a href="tel:+79950291170" class="font-display font-bold text-white hover:text-accent transition-colors">+7 995 029 11 70</a>
             </div>
-
-            <!-- Mobile Burger -->
-            <button id="burger-btn" class="md:hidden text-white p-2 z-50 hover:text-accent transition-colors" aria-label="Меню">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <button id="burger-btn" class="md:hidden text-white p-2 z-50 hover:text-accent transition-colors" aria-label="Меню"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </div>
-
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-[#131316]/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 md:hidden">
             <nav class="flex flex-col items-center gap-8 text-2xl font-display font-bold">
                 <a href="#services" class="hover:text-accent mobile-link transition-colors">Услуги</a>
@@ -177,28 +205,26 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="pt-32 md:pt-44 pb-20 px-4 min-h-screen flex items-center relative overflow-hidden">
+    <section class="pt-32 md:pt-44 pb-20 px-4 min-h-screen flex items-center relative overflow-hidden" id="hero-section">
         <div class="max-w-[1240px] mx-auto w-full relative z-10">
-            <!-- Grid Layout для Десктопа -->
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Левая колонка: Текст -->
-                <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div class="fade-in-section inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-8 w-fit backdrop-blur-sm">
+                <div class="flex flex-col items-center lg:items-start text-center lg:text-left relative">
+                    
+                    <div class="fade-in-section inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-8 w-fit backdrop-blur-sm relative z-10">
                         <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
                         <span class="text-xs font-mono text-accent uppercase tracking-widest font-bold">Личный контроль каждого дела</span>
                     </div>
 
-                    <h1 class="fade-in-section font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-8 tracking-tight text-white drop-shadow-2xl" style="transition-delay: 100ms;">
+                    <h1 class="fade-in-section font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-8 tracking-tight text-white drop-shadow-2xl relative z-10" style="transition-delay: 100ms;">
                         Превращаю <span class="text-gray-500">административные</span> <br>
                         <span class="text-gray-500">барьеры</span> в <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-200">активы</span>
                     </h1>
 
-                    <p class="fade-in-section text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed font-light" style="transition-delay: 200ms;">
+                    <p class="fade-in-section text-lg md:text-xl text-body max-w-xl mb-12 leading-relaxed font-light relative z-10" style="transition-delay: 200ms;">
                         Комплексное сопровождение девелоперов: от победы на торгах до ввода в эксплуатацию.
                     </p>
 
-                    <div class="fade-in-section flex flex-wrap justify-center lg:justify-start gap-4 mb-16" style="transition-delay: 300ms;">
+                    <div class="fade-in-section flex flex-wrap justify-center lg:justify-start gap-4 mb-16 relative z-10" style="transition-delay: 300ms;">
                         <a href="#contact" class="bg-accent text-black hover:bg-accentHover shadow-[0_0_40px_-10px_rgba(255,122,0,0.5)] border border-accent px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wide transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2">
                             Разобрать ситуацию
                         </a>
@@ -207,7 +233,7 @@
                         </a>
                     </div>
 
-                    <div class="fade-in-section grid grid-cols-3 gap-6 md:gap-16 border-t border-white/10 pt-8 w-full max-w-lg" style="transition-delay: 400ms;">
+                    <div class="fade-in-section grid grid-cols-3 gap-6 md:gap-16 border-t border-white/10 pt-8 w-full max-w-lg relative z-10" style="transition-delay: 400ms;">
                         <div class="text-center lg:text-left">
                             <div class="font-display font-bold text-lg md:text-2xl text-white mb-1">Опыт в B2B</div>
                             <div class="text-sm md:text-lg text-accent uppercase tracking-wide font-bold">16 лет</div>
@@ -223,38 +249,24 @@
                     </div>
                 </div>
 
-                <!-- Правая колонка: Большой Логотип (3x4) ПОДНЯТ ВЫШЕ -->
                 <div class="flex justify-center lg:justify-end relative fade-in-section lg:-mt-24" style="transition-delay: 200ms;">
-                    <!-- Контейнер для логотипа -->
                     <div class="relative w-[300px] h-[400px] md:w-[360px] md:h-[480px] rounded-[32px] overflow-hidden border border-white/10 glass flex items-center justify-center group hover:border-accent/30 transition-colors duration-500 shadow-2xl">
-                        
-                        <!-- Заглушка -->
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-white/10 z-0">
                             <i data-lucide="shield" class="w-32 h-32 mb-4"></i>
                             <span class="text-xs uppercase tracking-widest">Место для логотипа (logo-big.png)</span>
                         </div>
-
-                        <!-- Изображение -->
-                        <img src="logo-big.png" alt="Герб / Логотип" class="relative z-10 object-contain w-full h-full p-8 opacity-90 group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                        
-                        <!-- Блик -->
+                        <img src="logo-big.jpg" alt="Герб / Логотип" class="relative z-10 object-contain w-full h-full p-4 opacity-90 group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                         <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none"></div>
                     </div>
 
-                    <!-- Плавающая карточка -->
                     <div class="absolute -bottom-6 -left-6 md:-left-12 md:bottom-8 glass p-5 rounded-2xl max-w-[240px] animate-float border border-accent/20 backdrop-blur-xl bg-black/60 shadow-xl z-20">
                         <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent border border-accent/20">
-                                <i data-lucide="check" class="w-4 h-4"></i>
-                            </div>
+                            <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent border border-accent/20"><i data-lucide="check" class="w-4 h-4"></i></div>
                             <div class="text-xs font-bold text-white uppercase tracking-wider">Успешный кейс</div>
                         </div>
-                        <div class="text-xs text-gray-300 leading-snug">
-                            Снизили кадастровую стоимость ТЦ на <span class="text-white font-bold">35%</span> за 2 месяца
-                        </div>
+                        <div class="text-xs text-gray-300 leading-snug">Снизили кадастровую стоимость ТЦ на <span class="text-white font-bold">35%</span> за 2 месяца</div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -263,7 +275,6 @@
     <section class="border-y border-white/5 bg-[#131316]/50 py-6 overflow-hidden relative z-10 backdrop-blur-sm">
         <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#131316] to-transparent z-10"></div>
         <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#131316] to-transparent z-10"></div>
-        
         <div class="flex items-center animate-[marquee_40s_linear_infinite] whitespace-nowrap opacity-70">
             <div class="flex items-center gap-12 text-sm font-mono text-gray-400 font-medium">
                 <span class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span> ИЗЪЯТИЕ ЗА 3 ГОДА</span>
@@ -288,10 +299,9 @@
     <section id="services" class="py-24 px-4 relative z-10">
         <div class="max-w-[1240px] mx-auto">
             <h2 class="fade-in-section font-display font-bold text-3xl md:text-5xl mb-12">Работаем с профессиональным рынком</h2>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Card 1 -->
-                <div class="fade-in-section gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group">
+                <!-- 1 -->
+                <div class="fade-in-section glass-gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group">
                     <h3 class="text-lg md:text-2xl font-bold text-white mb-2 leading-tight">Девелоперы</h3>
                     <p class="text-sm text-gray-500 mb-8 font-mono uppercase tracking-wider">Жильё, МФК</p>
                     <ul class="space-y-4">
@@ -300,9 +310,8 @@
                         <li class="flex items-center gap-3 text-sm text-body"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(255,122,0,0.5)]"></div>Оценка рисков КРТ</li>
                     </ul>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="fade-in-section gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 100ms;">
+                <!-- 2 -->
+                <div class="fade-in-section glass-gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 100ms;">
                     <h3 class="text-lg md:text-2xl font-bold text-white mb-2 leading-tight">Владельцы коммерческой недвижимости</h3>
                     <p class="text-sm text-gray-500 mb-8 font-mono uppercase tracking-wider">ТЦ, БЦ</p>
                     <ul class="space-y-4">
@@ -311,9 +320,8 @@
                         <li class="flex items-center gap-3 text-sm text-body"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(255,122,0,0.5)]"></div>Узаконивание реконструкций</li>
                     </ul>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="fade-in-section gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 200ms;">
+                <!-- 3 -->
+                <div class="fade-in-section glass-gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 200ms;">
                     <h3 class="text-lg md:text-2xl font-bold text-white mb-2 leading-tight">Промышленность</h3>
                     <p class="text-sm text-gray-500 mb-8 font-mono uppercase tracking-wider">Склады, Производства</p>
                     <ul class="space-y-4">
@@ -322,9 +330,8 @@
                         <li class="flex items-center gap-3 text-sm text-body"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(255,122,0,0.5)]"></div>Смена категории земель и зданий</li>
                     </ul>
                 </div>
-
-                <!-- Card 4 -->
-                <div class="fade-in-section gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 300ms;">
+                <!-- 4 -->
+                <div class="fade-in-section glass-gradient-card p-6 md:p-10 w-full max-w-sm mx-auto md:max-w-none group" style="transition-delay: 300ms;">
                     <h3 class="text-lg md:text-2xl font-bold text-white mb-2 leading-tight">Агрохолдинги</h3>
                     <p class="text-sm text-gray-500 mb-8 font-mono uppercase tracking-wider">Земли с/х назначения</p>
                     <ul class="space-y-4">
@@ -337,333 +344,194 @@
         </div>
     </section>
 
-    <!-- RISKS -->
-    <section id="risks" class="py-24 px-4 relative z-10 bg-[#131316]">
+    <!-- RISKS (TRANSPARENT BACKGROUND) -->
+    <!-- Убрал bg-[#131316] чтобы солнце светило сквозь секцию -->
+    <section id="risks" class="py-24 px-4 relative z-10">
         <div class="max-w-[1240px] mx-auto">
             <h2 class="fade-in-section font-display font-bold text-3xl md:text-5xl mb-6">Реестр рисков</h2>
-            <p class="fade-in-section text-gray-500 max-w-2xl mb-12 text-lg">
-                Законодательство переходит от уведомительного порядка к карательному. <br>
-                Оцифровка контроля делает «серые зоны» видимыми для ФНС и Росреестра.
-            </p>
-
+            <p class="fade-in-section text-gray-500 max-w-2xl mb-12 text-lg">Законодательство переходит от уведомительного порядка к карательному.</p>
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Column 1 -->
+                <!-- Col 1 (Matte, High Blur, Colored Borders preserved) -->
                 <div class="space-y-6">
-                    <div class="fade-in-section bg-card/50 border border-red-500/20 rounded-[32px] p-8 hover:border-red-500/50 hover:bg-red-500/5 transition-all group backdrop-blur-sm">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20">
-                                <i data-lucide="alert-octagon" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-bold text-white text-lg">Потеря Актива</h3>
-                        </div>
+                    <div class="fade-in-section bg-[#1C1C1F]/70 backdrop-blur-[40px] border border-red-500/20 rounded-[32px] p-8 hover:border-red-500/50 hover:bg-red-500/5 transition-all group">
+                        <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20"><i data-lucide="alert-octagon" class="w-5 h-5"></i></div><h3 class="font-bold text-white text-lg">Потеря Актива</h3></div>
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Изъятие за 3 года</h4>
-                                <p class="text-xs text-body leading-relaxed">С 1 марта: Если за 3 года не начаты работы (фундамент), участок принудительно выставляется на торги.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Принудительное КРТ</h4>
-                                <p class="text-xs text-body leading-relaxed">Включение участка в зону КРТ по инициативе властей. Риск выкупа по заниженной оценке.</p>
-                            </div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Изъятие за 3 года</h4><p class="text-xs text-body leading-relaxed">С 1 марта: Если за 3 года не начаты работы (фундамент), участок принудительно выставляется на торги.</p></div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Принудительное КРТ</h4><p class="text-xs text-body leading-relaxed">Включение участка в зону КРТ по инициативе властей. Риск выкупа по заниженной оценке.</p></div>
                         </div>
                     </div>
-
-                    <div class="fade-in-section bg-card/50 border border-white/10 rounded-[32px] p-8 hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-all group backdrop-blur-sm">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 border border-yellow-500/20">
-                                <i data-lucide="map" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-bold text-white text-lg">Градостроительные Блоки</h3>
-                        </div>
+                    <div class="fade-in-section bg-[#1C1C1F]/70 backdrop-blur-[40px] border border-white/10 rounded-[32px] p-8 hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-all group">
+                        <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-500 border border-yellow-500/20"><i data-lucide="map" class="w-5 h-5"></i></div><h3 class="font-bold text-white text-lg">Градостроительные Блоки</h3></div>
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">ПЗЗ не соответствует Генплану</h4>
-                                <p class="text-xs text-body leading-relaxed">Отказ в выкупе ЗУ или реконструкции объекта: противоречие документов блокирует инвестиционный процесс.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Внезапные ЗОУИТ</h4>
-                                <p class="text-xs text-body leading-relaxed">Появление охранной зоны памятника или трубопровода, блокирующей любое строительство.</p>
-                            </div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">ПЗЗ не соответствует Генплану</h4><p class="text-xs text-body leading-relaxed">Отказ в выкупе ЗУ или реконструкции объекта.</p></div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Внезапные ЗОУИТ</h4><p class="text-xs text-body leading-relaxed">Появление охранной зоны памятника или трубопровода.</p></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Column 2 -->
+                <!-- Col 2 (Matte, High Blur, Colored Borders preserved) -->
                 <div class="space-y-6">
-                    <div class="fade-in-section bg-card/50 border border-white/10 rounded-[32px] p-8 hover:border-accent/50 hover:bg-accent/5 transition-all group backdrop-blur-sm">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent border border-accent/20">
-                                <i data-lucide="scan-eye" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-bold text-white text-lg">Цифровой Надзор</h3>
-                        </div>
+                    <div class="fade-in-section glass-card p-8 group">
+                        <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent border border-accent/20"><i data-lucide="scan-eye" class="w-5 h-5"></i></div><h3 class="font-bold text-white text-lg">Цифровой Надзор</h3></div>
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">БПЛА-Мониторинг</h4>
-                                <p class="text-xs text-body leading-relaxed">Дроны Росреестра автоматически выявляют самострой, нецелевое использование и мусор.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Отсутствие в НСУД</h4>
-                                <p class="text-xs text-body leading-relaxed">Объекты без координатной привязки в ЕГРН становятся юридически «невидимыми».</p>
-                            </div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">БПЛА-Мониторинг</h4><p class="text-xs text-body leading-relaxed">Дроны Росреестра автоматически выявляют самострой.</p></div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Отсутствие в НСУД</h4><p class="text-xs text-body leading-relaxed">Объекты без координатной привязки юридически «невидимы».</p></div>
                         </div>
                     </div>
-
-                    <div class="fade-in-section bg-card/50 border border-white/10 rounded-[32px] p-8 hover:border-green-500/50 hover:bg-green-500/5 transition-all group backdrop-blur-sm">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 border border-green-500/20">
-                                <i data-lucide="coins" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-bold text-white text-lg">Финансовые Убытки</h3>
-                        </div>
+                    <div class="fade-in-section glass-card p-8 group">
+                        <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 border border-green-500/20"><i data-lucide="coins" class="w-5 h-5"></i></div><h3 class="font-bold text-white text-lg">Финансовые Убытки</h3></div>
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Неосновательное обогащение</h4>
-                                <p class="text-xs text-body leading-relaxed">Взыскание платы за пользование землей без договора по рыночной оценке за 3 года (срок исковой давности).</p>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm mb-1">Утрата льгот</h4>
-                                <p class="text-xs text-body leading-relaxed">Отказ в применении пониженных ставок аренды или земельного налога. Рост платежей в 5-10 раз задним числом.</p>
-                            </div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Неосновательное обогащение</h4><p class="text-xs text-body leading-relaxed">Взыскание платы за пользование землей без договора за 3 года.</p></div>
+                            <div><h4 class="text-white font-bold text-sm mb-1">Утрата льгот</h4><p class="text-xs text-body leading-relaxed">Отказ в применении пониженных ставок. Рост платежей в 5-10 раз.</p></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Case Study -->
-             <div class="fade-in-section mt-6 gradient-card p-8 flex flex-col md:flex-row items-center gap-8">
-                <div class="flex-1 relative z-10">
-                    <div class="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-widest mb-2">
-                        <i data-lucide="trending-up" class="w-4 h-4"></i> Цена игнорирования
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Пример: Владелец складского комплекса переплачивал за аренду земли 5 лет из-за неверного ВРИ. 
-                        Сумма переплаты превысила <span class="text-white font-bold">12 млн руб</span>.
-                        <br>
-                        Мы исправили ВРИ и выкупили участок за 15% от кадастра.
-                    </p>
-                </div>
-                <div class="shrink-0 relative z-10">
-                    <a href="#audit" class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all">
-                        Рассчитать свои риски <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
+            
+            <div class="fade-in-section mt-6 glass-gradient-card p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1 relative z-10"><div class="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-widest mb-2"><i data-lucide="trending-up" class="w-4 h-4"></i> Цена игнорирования</div><p class="text-gray-400 text-sm leading-relaxed">Пример: Владелец переплачивал <span class="text-white font-bold">12 млн руб</span>. Мы исправили ВРИ и выкупили участок.</p></div>
+                <div class="shrink-0 relative z-10"><a href="#audit" class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all">Рассчитать свои риски <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
             </div>
-
-            <div class="fade-in-section mt-4 bg-card/30 border border-white/10 rounded-[32px] p-8 flex flex-col md:flex-row items-center gap-8 backdrop-blur-sm hover:border-green-500/30 transition-all">
+            <div class="fade-in-section mt-4 bg-[#1C1C1F]/70 backdrop-blur-[40px] border border-white/10 rounded-[32px] p-8 flex flex-col md:flex-row items-center gap-8 hover:border-green-500/30 transition-all">
                 <div class="flex-1">
-                    <div class="inline-flex items-center gap-2 text-xs font-bold text-green-500 uppercase tracking-widest mb-2">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i> Судебная защита
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Пример: Арендатору земельного участка был предъявлен иск от Администрации на сумму <span class="text-white font-bold">3,5 млн.руб</span>.
-                        <br>
-                        Проведя аудит и своевременно вступив в дело, мы взыскали с истца неосновательное обогащение <span class="text-white font-bold">85 тыс.руб.</span> и уменьшили текущие арендные платежи.
-                    </p>
+                    <div class="inline-flex items-center gap-2 text-xs font-bold text-green-500 uppercase tracking-widest mb-2"><i data-lucide="shield-check" class="w-4 h-4"></i> Судебная защита</div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Пример: Арендатору земельного участка был предъявлен иск от Администрации на сумму <span class="text-white font-bold">3,5 млн.руб</span>. <br> Проведя аудит и своевременно вступив в дело, мы взыскали с истца неосновательное обогащение <span class="text-white font-bold">85 тыс.руб.</span> и уменьшили текущие арендные платежи.</p>
                 </div>
                 <div class="shrink-0">
-                    <a href="#contact" class="inline-flex items-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 text-green-500 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all">
-                        Обсудить защиту <i data-lucide="message-square" class="w-4 h-4"></i>
-                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 text-green-500 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all">Обсудить защиту <i data-lucide="message-square" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOLUTIONS (Practices) -->
+    <!-- SOLUTIONS -->
     <section id="solutions" class="py-24 px-4 relative z-10">
         <div class="max-w-[1240px] mx-auto">
-            <h2 class="fade-in-section font-display font-bold text-3xl md:text-5xl mb-6">Юридические практики</h2>
-            <p class="fade-in-section text-gray-500 max-w-2xl mb-12 text-lg">
-                Глубокая экспертиза в узких направлениях земельного права.
-            </p>
-
+            <h2 class="font-display font-bold text-3xl md:text-5xl mb-6">Юридические практики</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Sol 1 -->
-                <div class="fade-in-section gradient-card p-8 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors">
-                            <i data-lucide="gavel" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-4">Земля и Торги</h3>
-                        <ul class="space-y-3 text-sm text-body">
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Аукционы и торги по банкротству</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Выкуп без торгов (ст. 39.20 ЗК РФ)</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Оспаривание незаконных отказов</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Земля в аренду без торгов (гос. программы)</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Льготный выкуп под производствами</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Оформление паев и невостребованных долей</li>
-                        </ul>
-                    </div>
+                <!-- 1 -->
+                <div class="fade-in-section glass-gradient-card p-8 flex flex-col justify-between group">
+                    <div><div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors"><i data-lucide="gavel" class="w-6 h-6"></i></div><h3 class="text-xl font-bold text-white mb-4">Земля и Торги</h3><ul class="space-y-3 text-sm text-body"><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Аукционы и торги по банкротству</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Выкуп без торгов (ст. 39.20 ЗК РФ)</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Оспаривание незаконных отказов</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Земля в аренду без торгов</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Льготный выкуп под производствами</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Оформление паев</li></ul></div>
                 </div>
-
-                <!-- Sol 2 -->
-                <div class="fade-in-section gradient-card p-8 flex flex-col justify-between group" style="transition-delay: 100ms;">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors">
-                            <i data-lucide="shield" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-4">GR и Споры</h3>
-                        <ul class="space-y-3 text-sm text-body">
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Снижение кадастровой стоимости</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Защита от штрафов ДМИ и Росреестра</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Уменьшение арендных платежей</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Взыскание неосновательного обогащения</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Анализ цепочки арендаторов (риски иноагентов)</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Сокращение санитарно-защитных зон (СЗЗ)</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Споры по границам и изъятию с/х земель</li>
-                        </ul>
-                    </div>
+                <!-- 2 -->
+                <div class="fade-in-section glass-gradient-card p-8 flex flex-col justify-between group" style="transition-delay: 100ms;">
+                    <div><div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors"><i data-lucide="shield" class="w-6 h-6"></i></div><h3 class="text-xl font-bold text-white mb-4">GR и Споры</h3><ul class="space-y-3 text-sm text-body"><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Снижение кадастровой стоимости</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Защита от штрафов</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Уменьшение арендных платежей</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Взыскание неосновательного обогащения</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Анализ цепочки арендаторов</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Сокращение СЗЗ</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Споры по границам</li></ul></div>
                 </div>
-
-                <!-- Sol 3 -->
-                <div class="fade-in-section gradient-card p-8 flex flex-col justify-between group" style="transition-delay: 200ms;">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors">
-                            <i data-lucide="hard-hat" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-4">Стройка и Развитие</h3>
-                        <ul class="space-y-3 text-sm text-body">
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Получение РНС и ЗОС</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Легализация самостроя (ст. 222 ГК РФ)</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Ввод в эксплуатацию сложных объектов</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Увеличение ТЭП и этажности</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Смена ВРИ, внесение изменений в ПЗЗ и Генплан</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Перевод земель из С/Х в Промышленность</li>
-                            <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Легализация реконструкции заводов</li>
-                        </ul>
-                    </div>
+                <!-- 3 -->
+                <div class="fade-in-section glass-gradient-card p-8 flex flex-col justify-between group" style="transition-delay: 200ms;">
+                    <div><div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/5 group-hover:bg-accent/10 transition-colors"><i data-lucide="hard-hat" class="w-6 h-6"></i></div><h3 class="text-xl font-bold text-white mb-4">Стройка и Развитие</h3><ul class="space-y-3 text-sm text-body"><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Получение РНС и ЗОС</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Легализация самостроя</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Ввод в эксплуатацию</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Увеличение ТЭП</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Смена ВРИ, ПЗЗ, Генплан</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Перевод земель</li><li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>Легализация реконструкции</li></ul></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AUDIT (Red Card) -->
+    <!-- AUDIT (ZAKAT) -->
     <section id="audit" class="py-24 px-4 relative z-10">
         <div class="max-w-[1240px] mx-auto">
-            <div class="fade-in-section gradient-card p-8 md:p-16 text-center relative overflow-hidden group border border-red-500/20 hover:border-red-500/40">
-                <!-- Red Glow -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen"></div>
-                
+            <div class="fade-in-section gradient-card p-8 md:p-16 text-center relative overflow-hidden group border border-red-500/10 hover:border-red-500/20 bg-black/60">
                 <div class="relative z-10">
-                    <h2 class="font-display font-bold text-xl md:text-3xl lg:text-4xl mb-12 leading-tight">
-                        Стройка или выкуп без аудита — <span class="text-red-500 whitespace-nowrap drop-shadow-[0_0_15px_rgba(255,69,58,0.5)]">«Русская рулетка»</span>
-                    </h2>
-
-                    <!-- Upper Grid -->
+                    <h2 class="font-display font-bold text-xl md:text-3xl lg:text-4xl mb-12 leading-tight">Стройка или выкуп без аудита — <span class="text-red-500 whitespace-nowrap">«Русская рулетка»</span></h2>
                     <div class="grid md:grid-cols-3 gap-6 mb-12 text-left">
-                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors">
-                            <div class="font-bold text-red-500 mb-2">Скрытые коммуникации</div>
-                            <div class="text-xs text-body">Труба = убытки 50 млн</div>
-                        </div>
-                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors">
-                            <div class="font-bold text-red-500 mb-2">Зоны ЗОУИТ</div>
-                            <div class="text-xs text-body">Запрет на строительство</div>
-                        </div>
-                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors">
-                            <div class="font-bold text-red-500 mb-2">Риски изъятия</div>
-                            <div class="text-xs text-body">Потеря актива</div>
-                        </div>
+                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors"><div class="font-bold text-red-500 mb-2">Скрытые коммуникации</div><div class="text-xs text-body">Труба = убытки 50 млн</div></div>
+                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors"><div class="font-bold text-red-500 mb-2">Зоны ЗОУИТ</div><div class="text-xs text-body">Запрет на строительство</div></div>
+                        <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors"><div class="font-bold text-red-500 mb-2">Риски изъятия</div><div class="text-xs text-body">Потеря актива</div></div>
                     </div>
-
-                    <!-- Bottom Area -->
                     <div class="flex flex-col lg:flex-row items-center justify-between gap-6 w-full">
-                        <div class="w-full lg:w-1/3 text-left order-2 lg:order-1">
-                            <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors h-full">
-                                <div class="font-bold text-red-500 mb-2 leading-tight uppercase text-sm tracking-wide">Незаконная реконструкция</div>
-                                <div class="text-sm text-white">При выкупе земли — иск о сносе</div>
-                            </div>
-                        </div>
-
+                        <div class="w-full lg:w-1/3 text-left order-2 lg:order-1"><div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors h-full"><div class="font-bold text-red-500 mb-2 leading-tight uppercase text-sm tracking-wide">Незаконная реконструкция</div><div class="text-sm text-white">При выкупе земли — иск о сносе</div></div></div>
+                        
+                        <!-- THE GLOWING BUTTON (LAST LIGHT) -->
                         <div class="w-full lg:w-1/3 order-1 lg:order-2 shrink-0">
                             <h3 class="text-xl font-bold mb-2 whitespace-nowrap text-white">Заказать земельный аудит</h3>
                             <p class="text-body text-sm mb-6">Стоимость от 50 000 ₽</p>
-                            <a href="#contact" class="inline-flex w-full justify-center bg-accent text-black hover:bg-accentHover shadow-[0_0_30px_rgba(255,122,0,0.4)] border border-accent px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wide transition-all duration-300 transform hover:-translate-y-1">
-                                Заказать Аудит
-                            </a>
+                            <a href="#contact" class="inline-flex w-full justify-center bg-accent text-black hover:bg-accentHover animate-pulse-glow border border-accent px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wide transition-all duration-300 transform hover:-translate-y-1">Заказать Аудит</a>
                         </div>
-
-                        <div class="w-full lg:w-1/3 text-left order-3">
-                            <div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors h-full">
-                                <div class="font-bold text-red-500 mb-2 leading-tight uppercase text-sm tracking-wide">Максимальная или мин. застройка</div>
-                                <div class="text-sm text-white">Потеря части участка</div>
-                            </div>
-                        </div>
+                        
+                        <div class="w-full lg:w-1/3 text-left order-3"><div class="bg-black/30 backdrop-blur p-5 rounded-2xl border border-white/10 hover:border-red-500/40 transition-colors h-full"><div class="font-bold text-red-500 mb-2 leading-tight uppercase text-sm tracking-wide">Максимальная или мин. застройка</div><div class="text-sm text-white">Потеря части участка</div></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-24 px-4 pb-32 relative z-10">
-        <div class="max-w-[1240px] mx-auto grid lg:grid-cols-2 gap-16">
-            <div class="fade-in-section">
-                <h2 class="font-display font-bold text-4xl mb-6 text-white">Обсудить проект с Юристом</h2>
-                <p class="text-body mb-12 text-lg">
-                    Антон Андреевич свяжется с вами для предварительной оценки перспектив дела.
-                </p>
-                
-                <div class="space-y-8">
-                    <div class="flex items-center gap-6 group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-300 border border-white/10">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Офис</div>
-                            <div class="text-white text-lg">Волгоград ул. Мира, 13, оф 13</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-6 group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-300 border border-white/10">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Телефон</div>
-                            <div class="text-white font-bold text-2xl">+7 995 029 11 70</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-6 group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-300 border border-white/10">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Почта</div>
-                            <a href="mailto:kadastr.34@mail.ru" class="text-white text-lg hover:text-accent transition-colors">kadastr.34@mail.ru</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <form class="fade-in-section gradient-card p-8 md:p-10 space-y-6 shadow-2xl" id="contactForm">
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-3 ml-1">Имя</label>
-                    <input type="text" name="name" id="formName" class="w-full bg-[#131316]/50 border border-white/10 rounded-xl p-4 text-white focus:border-accent focus:outline-none transition-colors" placeholder="Иван Петров" required>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-3 ml-1">Телефон</label>
-                    <input type="tel" name="phone" id="formPhone" class="w-full bg-[#131316]/50 border border-white/10 rounded-xl p-4 text-white focus:border-accent focus:outline-none transition-colors" placeholder="+7 (999) ..." required>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-3 ml-1">Кадастровый номер и Задача</label>
-                    <textarea rows="3" name="message" id="formTask" class="w-full bg-[#131316]/50 border border-white/10 rounded-xl p-4 text-white focus:border-accent focus:outline-none transition-colors" placeholder="77:01:000000:000... / Суть вопроса" required></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="w-full bg-accent text-black hover:bg-accentHover shadow-[0_0_25px_rgba(255,122,0,0.3)] border border-accent px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wide transition-all duration-300">
-                    Отправить заявку
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer class="border-t border-white/10 py-12 text-center text-xs text-gray-600 uppercase tracking-widest relative z-10 bg-[#131316]">
         <p>© 2025 Бондаренко Антон Андреевич. Все права защищены. Не является публичной офертой.</p>
     </footer>
 
-    <!-- Scripts (Same as before) -->
     <script>
         lucide.createIcons();
         document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- SUN SCRIPT (ПУТЬ СОЛНЦА) ---
+            const sun = document.getElementById('sun-orb');
+            
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const h = window.innerHeight;
+                
+                // 1. РАССВЕТ (Hero -> Services)
+                // От левого верхнего угла до центра (зенит)
+                if (scrollY < h * 1.5) {
+                    const p = Math.min(scrollY / (h * 1.5), 1); // progress 0 to 1
+                    
+                    // Позиция
+                    const top = 5 + (20 * p);   // 5% -> 25% (верх)
+                    const left = 5 + (45 * p);  // 5% -> 50% (центр)
+                    
+                    // Эффекты
+                    const scale = 1 + (2.5 * p); // Растет
+                    const opacity = 0.8 + (0.2 * p); // Ярче
+                    const color = `rgba(255, ${180 - 60*p}, 50, ${0.5 + 0.3*p})`; // Желтый -> Оранжевый
+
+                    sun.style.top = `${top}%`;
+                    sun.style.left = `${left}%`;
+                    sun.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                    sun.style.opacity = opacity;
+                    sun.style.background = `radial-gradient(circle, ${color} 0%, rgba(255, 122, 0, 0) 70%)`;
+                }
+                
+                // 2. ЗЕНИТ -> ПРОСВЕТ ЧЕРЕЗ ТУЧИ (Services -> Risks)
+                // Уходит вправо, становится оранжевым, светит через стекло
+                else if (scrollY < h * 2.8) {
+                    const p = (scrollY - h * 1.5) / (h * 1.3); // progress 0 to 1
+                    
+                    const top = 25 + (35 * p);  // 25% -> 60% (вниз)
+                    const left = 50 + (35 * p); // 50% -> 85% (вправо)
+                    
+                    const scale = 3.5 - (1.5 * p); // Немного уменьшается
+                    const opacity = 1; // Остается ярким (просвечивает)
+
+                    sun.style.top = `${top}%`;
+                    sun.style.left = `${left}%`;
+                    sun.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                    sun.style.opacity = opacity;
+                }
+                
+                // 3. ЗАКАТ (Audit -> Footer)
+                // Опускается в самый низ, краснеет
+                else {
+                    // Normalize progress from h*2.8 to end of scroll
+                    const startPhase3 = h * 2.8;
+                    const endPhase3 = document.body.scrollHeight - h; 
+                    let p = (scrollY - startPhase3) / (endPhase3 - startPhase3);
+                    p = Math.min(Math.max(p, 0), 1);
+                    
+                    const top = 60 + (30 * p);  // 60% -> 90% (Низ)
+                    const left = 85;            // Остается справа
+                    
+                    const scale = 2 - (0.5 * p); 
+                    const opacity = 0.8; // Виден
+                    
+                    // Оранжевый -> Глубокий красный
+                    const color = `rgba(255, ${Math.max(50, 120 - 100*p)}, 50, 0.8)`; 
+
+                    sun.style.top = `${top}%`;
+                    sun.style.left = `${left}%`;
+                    sun.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                    sun.style.opacity = opacity;
+                    sun.style.background = `radial-gradient(circle, ${color} 0%, rgba(255, 69, 58, 0) 70%)`;
+                }
+            });
+
+            // Standard observers
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
             }, { threshold: 0.1 });
@@ -673,75 +541,78 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            burgerBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
-                const isOpen = mobileMenu.classList.contains('open');
-                burgerBtn.innerHTML = isOpen 
-                    ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
-                    : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
-            });
+            if (burgerBtn && mobileMenu) {
+                burgerBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const isOpen = mobileMenu.classList.contains('open');
+                    burgerBtn.innerHTML = isOpen 
+                        ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
+                        : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+                });
 
-            mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.remove('open'); burgerBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>'; }); });
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        burgerBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+                    });
+                });
+            }
 
             const form = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
 
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const originalText = submitBtn.innerText;
-                const data = new FormData(form);
-                submitBtn.innerText = 'Отправка...';
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-75', 'cursor-wait');
+            if (form && submitBtn) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const originalText = submitBtn.innerText;
+                    const data = new FormData(form);
+                    submitBtn.innerText = 'Отправка...';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-75', 'cursor-wait');
 
-                fetch("https://formspree.io/f/xojvgrrd", {
-                    method: "POST",
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(response => {
-                    if (response.ok) {
-                        submitBtn.innerText = 'Успешно отправлено!';
-                        submitBtn.classList.remove('bg-accent', 'text-black');
-                        submitBtn.classList.add('bg-success', 'text-white');
-                        form.reset();
-                        setTimeout(() => {
-                            submitBtn.innerText = originalText;
-                            submitBtn.disabled = false;
-                            submitBtn.classList.remove('opacity-75', 'cursor-wait', 'bg-success', 'text-white');
-                            submitBtn.classList.add('bg-accent', 'text-black');
-                        }, 3000);
-                    } else {
-                        submitBtn.innerText = 'Ошибка. Попробуйте еще раз';
+                    fetch("https://formspree.io/f/xojvgrrd", {
+                        method: "POST",
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            submitBtn.innerText = 'Успешно отправлено!';
+                            submitBtn.classList.remove('bg-accent', 'text-black');
+                            submitBtn.classList.add('bg-success', 'text-white');
+                            form.reset();
+                            setTimeout(() => {
+                                submitBtn.innerText = originalText;
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove('opacity-75', 'cursor-wait', 'bg-success', 'text-white');
+                                submitBtn.classList.add('bg-accent', 'text-black');
+                            }, 3000);
+                        } else {
+                            submitBtn.innerText = 'Ошибка. Попробуйте еще раз';
+                            setTimeout(() => {
+                                submitBtn.innerText = originalText;
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove('opacity-75', 'cursor-wait');
+                            }, 3000);
+                        }
+                    }).catch(error => {
+                        submitBtn.innerText = 'Ошибка сети';
                         setTimeout(() => {
                             submitBtn.innerText = originalText;
                             submitBtn.disabled = false;
                             submitBtn.classList.remove('opacity-75', 'cursor-wait');
                         }, 3000);
-                    }
-                }).catch(error => {
-                    submitBtn.innerText = 'Ошибка сети';
-                    setTimeout(() => {
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('opacity-75', 'cursor-wait');
-                    }, 3000);
+                    });
                 });
-            });
+            }
         });
     </script>
     
-    <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106174393', 'ym');
-
+        (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106174393', 'ym');
         ym(106174393, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/106174393" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
 </body>
 </html>
